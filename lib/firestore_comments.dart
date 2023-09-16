@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Comments extends StatefulWidget {
   const Comments({super.key});
@@ -29,6 +30,14 @@ class _CommentsState extends State<Comments> {
           })
           .then((value) => print("User Added"))
           .catchError((error) => print("Failed to add user: $error"));
+    }
+
+    Future<void> deleteComment(id) {
+      return comments
+          .doc(id)
+          .delete()
+          .then((value) => print("Comment Deleted"))
+          .catchError((error) => print("Failed to delete user: $error"));
     }
 
     return Column(
@@ -90,8 +99,14 @@ class _CommentsState extends State<Comments> {
                         Map<String, dynamic> data =
                             document.data()! as Map<String, dynamic>;
                         return ListTile(
-                          title: Text(data['name']),
+                          title: Text(data['name'] +
+                              " - ${(data['date'] as Timestamp).toDate()}"),
                           subtitle: Text(data['comment']),
+                          trailing: IconButton(
+                              onPressed: () {
+                                deleteComment(document.id);
+                              },
+                              icon: Icon(Icons.delete)),
                         );
                       }).toList(),
                     );
