@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class Comments extends StatefulWidget {
   const Comments({super.key});
@@ -42,7 +41,6 @@ class _CommentsState extends State<Comments> {
 
     return Column(
       children: [
-        Text("Leave a comment"),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
@@ -52,7 +50,7 @@ class _CommentsState extends State<Comments> {
                   controller: nameTextController,
                   focusNode: focusName,
                   decoration: const InputDecoration(
-                      labelText: 'Please enter your name here.',
+                      labelText: 'Name',
                       fillColor: Colors.white,
                       icon: Icon(Icons.person)),
                 ),
@@ -62,7 +60,7 @@ class _CommentsState extends State<Comments> {
                   minLines: 1,
                   maxLines: 5,
                   decoration: const InputDecoration(
-                      labelText: 'Comment...',
+                      labelText: 'Comment',
                       fillColor: Colors.white,
                       icon: Icon(Icons.edit)),
                 ),
@@ -80,41 +78,46 @@ class _CommentsState extends State<Comments> {
                     "Add Comment",
                   ),
                 ),
-                StreamBuilder<QuerySnapshot>(
-                  stream: commentsStream,
-                  builder: (BuildContext context,
-                      AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.hasError) {
-                      return Text('Something went wrong');
-                    }
-
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Text("Loading");
-                    }
-
-                    return ListView(
-                      shrinkWrap: true,
-                      children:
-                          snapshot.data!.docs.map((DocumentSnapshot document) {
-                        Map<String, dynamic> data =
-                            document.data()! as Map<String, dynamic>;
-                        return ListTile(
-                          title: Text(data['name'] +
-                              " - ${(data['date'] as Timestamp).toDate()}"),
-                          subtitle: Text(data['comment']),
-                          trailing: IconButton(
-                              onPressed: () {
-                                deleteComment(document.id);
-                              },
-                              icon: Icon(Icons.delete)),
-                        );
-                      }).toList(),
-                    );
-                  },
-                )
               ],
             ),
           ),
+        ),
+        StreamBuilder<QuerySnapshot>(
+          stream: commentsStream,
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError) {
+              return Text('Something went wrong');
+            }
+
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Text("Loading");
+            }
+
+            return ListView(
+              reverse: true,
+              shrinkWrap: true,
+              children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> data =
+                    document.data()! as Map<String, dynamic>;
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    child: ListTile(
+                      title: Text(data['name'] +
+                          " - ${(data['date'] as Timestamp).toDate()}"),
+                      subtitle: Text(data['comment']),
+                      trailing: IconButton(
+                          onPressed: () {
+                            deleteComment(document.id);
+                          },
+                          icon: Icon(Icons.delete)),
+                    ),
+                  ),
+                );
+              }).toList(),
+            );
+          },
         ),
       ],
     );
