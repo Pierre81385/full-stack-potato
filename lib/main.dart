@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Scaffold(body: HomePage(width: width, height: height)),
+      home: Scaffold(body: HomePage()),
     );
   }
 }

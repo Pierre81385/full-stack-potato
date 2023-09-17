@@ -2,14 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HeaderComponent extends StatefulWidget {
-  const HeaderComponent(
-      {super.key,
-      required this.width,
-      required this.height,
-      required this.hero});
+  const HeaderComponent({super.key, required this.hero});
 
-  final double width;
-  final double height;
   final bool hero;
 
   @override
@@ -17,21 +11,20 @@ class HeaderComponent extends StatefulWidget {
 }
 
 class _HeaderComponentState extends State<HeaderComponent> {
-  late double height;
-  late double width;
   late String device;
   late bool hero;
 
   @override
   void initState() {
-    height = widget.height;
-    width = widget.width;
     hero = widget.hero;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    Size media = MediaQuery.of(context).size;
+    double height = media.height;
+    double width = media.width;
     return width < 500
         ? Center(
             child: Material(

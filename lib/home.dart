@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:full_potatop/about.dart';
+import 'package:full_potatop/experience.dart';
 import 'package:full_potatop/firestore_comments.dart';
 import 'package:full_potatop/header.dart';
 import 'package:full_potatop/navigation.dart';
+import 'package:full_potatop/projects.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
     super.key,
-    required this.width,
-    required this.height,
   });
-
-  final double width;
-  final double height;
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  late double height;
-  late double width;
   bool _hero = true;
   int _selectedIndex = 1;
 
@@ -31,8 +27,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    height = widget.height;
-    width = widget.width;
     _onSelect(_selectedIndex);
 
     super.initState();
@@ -40,7 +34,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _pages = <Widget>[];
+    Size media = MediaQuery.of(context).size;
+    double height = media.height;
+    double width = media.width;
+    List<Widget> _pages = <Widget>[
+      ProjectsComponent(),
+      AboutComponent(),
+      ExperienceComponent()
+    ];
     return SizedBox(
       height: height,
       width: width,
@@ -62,8 +63,6 @@ class _HomePageState extends State<HomePage> {
                               width < 500 ? BoxFit.fitHeight : BoxFit.fitWidth),
                     ),
                     child: HeaderComponent(
-                      width: width,
-                      height: height,
                       hero: _hero,
                     ),
                   ),
@@ -75,8 +74,6 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         HeaderComponent(
-                          width: width,
-                          height: height,
                           hero: _hero,
                         ),
                         Column(
@@ -89,15 +86,13 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             NavComponent(
-                              width: width,
-                              height: height,
                               onSelect: _onSelect,
                             ),
                           ],
                         ),
                       ],
                     ),
-                    Text(_selectedIndex.toString()),
+                    _pages.elementAt(_selectedIndex),
                     Comments(),
                   ],
                 )

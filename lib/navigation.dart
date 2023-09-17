@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NavComponent extends StatefulWidget {
-  const NavComponent(
-      {super.key,
-      required this.width,
-      required this.height,
-      required this.onSelect});
+  const NavComponent({super.key, required this.onSelect});
 
-  final double width;
-  final double height;
   final void Function(int) onSelect;
 
   @override
@@ -16,15 +10,11 @@ class NavComponent extends StatefulWidget {
 }
 
 class _NavComponentState extends State<NavComponent> {
-  late double height;
-  late double width;
   late void Function(int) _onSelect;
   int _activeNav = 1; //New
 
   @override
   void initState() {
-    height = widget.height;
-    width = widget.width;
     _onSelect = widget.onSelect;
 
     super.initState();
@@ -32,6 +22,9 @@ class _NavComponentState extends State<NavComponent> {
 
   @override
   Widget build(BuildContext context) {
+    Size media = MediaQuery.of(context).size;
+    double height = media.height;
+    double width = media.width;
     return Column(
       children: [
         Row(
