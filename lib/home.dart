@@ -57,10 +57,10 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
-                      image: DecorationImage(
-                          image: AssetImage("lib/assets/code.png"),
-                          fit:
-                              width < 500 ? BoxFit.fitHeight : BoxFit.fitWidth),
+                      // image: DecorationImage(
+                      //     image: AssetImage("lib/assets/code.png"),
+                      //     fit:
+                      //         width < 500 ? BoxFit.fitHeight : BoxFit.fitWidth),
                     ),
                     child: HeaderComponent(
                       hero: _hero,
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                "PETER JOHN BISHOP",
+                                "PETER JOHN BISHOP / FULL STACK DEVELOPER",
                                 style: TextStyle(color: Colors.black),
                               ),
                             ),
@@ -93,7 +93,6 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     _pages.elementAt(_selectedIndex),
-                    Comments(),
                   ],
                 )
         ],

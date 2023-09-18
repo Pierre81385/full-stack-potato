@@ -11,6 +11,9 @@ class Comments extends StatefulWidget {
 class _CommentsState extends State<Comments> {
   @override
   Widget build(BuildContext context) {
+    Size media = MediaQuery.of(context).size;
+    double height = media.height;
+    double width = media.width;
     final nameTextController = TextEditingController();
     final focusName = FocusNode();
     final commentTextController = TextEditingController();
@@ -39,87 +42,94 @@ class _CommentsState extends State<Comments> {
           .catchError((error) => print("Failed to delete user: $error"));
     }
 
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Form(
-            child: Column(
-              children: [
-                TextFormField(
-                  controller: nameTextController,
-                  focusNode: focusName,
-                  decoration: const InputDecoration(
-                      labelText: 'Name',
-                      fillColor: Colors.white,
-                      icon: Icon(Icons.person)),
-                ),
-                TextFormField(
-                  controller: commentTextController,
-                  focusNode: focusComment,
-                  minLines: 1,
-                  maxLines: 5,
-                  decoration: const InputDecoration(
-                      labelText: 'Comment',
-                      fillColor: Colors.white,
-                      icon: Icon(Icons.edit)),
-                ),
-                TextButton(
-                  onPressed: () {
-                    addComment();
-                    setState(() {
-                      nameTextController.text = "";
-                      commentTextController.text = "";
-                      focusName.unfocus();
-                      focusComment.unfocus();
-                    });
-                  },
-                  child: Text(
-                    "Add Comment",
+    return SizedBox(
+      width: width * .66,
+      height: height * .33,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Form(
+              child: Column(
+                children: [
+                  TextFormField(
+                    controller: nameTextController,
+                    focusNode: focusName,
+                    decoration: const InputDecoration(
+                        labelText: 'Name',
+                        fillColor: Colors.white,
+                        icon: Icon(Icons.person)),
                   ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        StreamBuilder<QuerySnapshot>(
-          stream: commentsStream,
-          builder:
-              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (snapshot.hasError) {
-              return Text('Something went wrong');
-            }
-
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Text("Loading");
-            }
-
-            return ListView(
-              reverse: true,
-              shrinkWrap: true,
-              children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                Map<String, dynamic> data =
-                    document.data()! as Map<String, dynamic>;
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Card(
-                    child: ListTile(
-                      title: Text(data['name'] +
-                          " - ${(data['date'] as Timestamp).toDate()}"),
-                      subtitle: Text(data['comment']),
-                      trailing: IconButton(
-                          onPressed: () {
-                            deleteComment(document.id);
-                          },
-                          icon: Icon(Icons.delete)),
+                  TextFormField(
+                    controller: commentTextController,
+                    focusNode: focusComment,
+                    minLines: 1,
+                    maxLines: 5,
+                    decoration: const InputDecoration(
+                        labelText: 'Comment',
+                        fillColor: Colors.white,
+                        icon: Icon(Icons.edit)),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      addComment();
+                      setState(() {
+                        nameTextController.text = "";
+                        commentTextController.text = "";
+                        focusName.unfocus();
+                        focusComment.unfocus();
+                      });
+                    },
+                    child: Text(
+                      "Add Comment",
                     ),
                   ),
-                );
-              }).toList(),
-            );
-          },
-        ),
-      ],
+                ],
+              ),
+            ),
+          ),
+          StreamBuilder<QuerySnapshot>(
+            stream: commentsStream,
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.hasError) {
+                return Text('Something went wrong');
+              }
+
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Text("Loading");
+              }
+
+              return Expanded(
+                child: ListView(
+                  reverse: true,
+                  shrinkWrap: true,
+                  children:
+                      snapshot.data!.docs.map((DocumentSnapshot document) {
+                    Map<String, dynamic> data =
+                        document.data()! as Map<String, dynamic>;
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Card(
+                        child: ListTile(
+                          title: Text(data['name'] +
+                              " - ${(data['date'] as Timestamp).toDate()}"),
+                          subtitle: Text(data['comment']),
+                          trailing: IconButton(
+                              onPressed: () {
+                                deleteComment(document.id);
+                              },
+                              icon: Icon(Icons.delete)),
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }
