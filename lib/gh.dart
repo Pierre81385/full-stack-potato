@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:full_potatop/key.dart';
 import 'package:http/http.dart' as http;
-import 'package:octokit/octokit.dart';
 
 class GitHubComponent extends StatefulWidget {
   const GitHubComponent({super.key});
@@ -158,104 +157,189 @@ class _GitHubComponentState extends State<GitHubComponent> {
     List<MapEntry<String, dynamic>> keyValueList = langsUsed.entries.toList();
     keyValueList.sort((a, b) => b.value.compareTo(a.value));
 
-    return SizedBox(
-      height: height * .33,
-      width: width,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 15,
-                child: Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Repositories Created',
-                        style: TextStyle(
-                            fontSize: 32, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        user.isNotEmpty
-                            ? user['public_repos'].toString()
-                            : 'No data available',
-                        style: TextStyle(fontSize: 26.0),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 15,
-                child: Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  child: Column(
+    return width < 500
+        ? ListView(
+            shrinkWrap: true,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Card(
+                  elevation: 15,
+                  child: Container(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'Top 3 Languages Used',
+                        const Text(
+                          'Repositories Created',
                           style: TextStyle(
                               fontSize: 32, fontWeight: FontWeight.bold),
                         ),
-                        ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: 3,
-                          itemBuilder: (context, index) {
-                            final key = keyValueList[index].key;
-                            final value = keyValueList[index].value;
-                            return ListTile(
-                              title: Center(child: Text(key)),
-                              subtitle: Center(
-                                  child: Text('${(value / total) * 100} %')),
-                            );
-                          },
+                        Text(
+                          user.isNotEmpty
+                              ? user['public_repos'].toString()
+                              : 'No data available',
+                          style: const TextStyle(fontSize: 26.0),
                         ),
-                      ]),
-                ),
-              ),
-            ),
-          ),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 15,
-                child: Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Commits Made',
-                        style: TextStyle(
-                            fontSize: 32, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        numberOfCommits > 0
-                            ? numberOfCommits.toString()
-                            : 'No data available',
-                        style: TextStyle(fontSize: 26.0),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Card(
+                  elevation: 15,
+                  child: Container(
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Top 3 Languages Used',
+                            style: TextStyle(
+                                fontSize: 32, fontWeight: FontWeight.bold),
+                          ),
+                          ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: 3,
+                            itemBuilder: (context, index) {
+                              final key = keyValueList[index].key;
+                              final value = keyValueList[index].value;
+                              return ListTile(
+                                title: Center(child: Text(key)),
+                                subtitle: Center(
+                                    child: Text('${(value / total) * 100} %')),
+                              );
+                            },
+                          ),
+                        ]),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Card(
+                  elevation: 15,
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Commits Made',
+                          style: TextStyle(
+                              fontSize: 32, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          numberOfCommits > 0
+                              ? numberOfCommits.toString()
+                              : 'No data available',
+                          style: const TextStyle(fontSize: 26.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          )
+        : SizedBox(
+            height: height * .33,
+            width: width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      elevation: 15,
+                      child: Container(
+                        height: double.infinity,
+                        width: double.infinity,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              'Repositories Created',
+                              style: TextStyle(
+                                  fontSize: 32, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              user.isNotEmpty
+                                  ? user['public_repos'].toString()
+                                  : 'No data available',
+                              style: const TextStyle(fontSize: 26.0),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      elevation: 15,
+                      child: Container(
+                        height: double.infinity,
+                        width: double.infinity,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                'Top 3 Languages Used',
+                                style: TextStyle(
+                                    fontSize: 32, fontWeight: FontWeight.bold),
+                              ),
+                              ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: 3,
+                                itemBuilder: (context, index) {
+                                  final key = keyValueList[index].key;
+                                  final value = keyValueList[index].value;
+                                  return ListTile(
+                                    title: Center(child: Text(key)),
+                                    subtitle: Center(
+                                        child:
+                                            Text('${(value / total) * 100} %')),
+                                  );
+                                },
+                              ),
+                            ]),
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      elevation: 15,
+                      child: Container(
+                        height: double.infinity,
+                        width: double.infinity,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              'Commits Made',
+                              style: TextStyle(
+                                  fontSize: 32, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              numberOfCommits > 0
+                                  ? numberOfCommits.toString()
+                                  : 'No data available',
+                              style: const TextStyle(fontSize: 26.0),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
-    );
+          );
   }
 }

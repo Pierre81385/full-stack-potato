@@ -80,10 +80,17 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "PETER JOHN BISHOP / FULL STACK DEVELOPER",
-                                style: TextStyle(color: Colors.black),
-                              ),
+                              child: width < 500
+                                  ? Column(
+                                      children: [
+                                        Text('PETER JOHN BISHOP'),
+                                        Text('full stack developer')
+                                      ],
+                                    )
+                                  : Text(
+                                      "PETER JOHN BISHOP / FULL STACK DEVELOPER",
+                                      style: TextStyle(color: Colors.black),
+                                    ),
                             ),
                             NavComponent(
                               onSelect: _onSelect,
