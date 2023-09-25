@@ -42,9 +42,7 @@ class _HomePageState extends State<HomePage> {
       AboutComponent(),
       ExperienceComponent()
     ];
-    return SizedBox(
-      height: height,
-      width: width,
+    return SingleChildScrollView(
       child: Column(
         children: [
           _hero == true

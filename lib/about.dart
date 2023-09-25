@@ -33,19 +33,16 @@ class _AboutComponentState extends State<AboutComponent> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                         child: Container(
                           decoration: BoxDecoration(color: Colors.black),
                           width: double.infinity,
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              textAlign: TextAlign.center,
-                              "...a little bit about me,",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  backgroundColor: Colors.black),
-                            ),
+                          child: Text(
+                            textAlign: TextAlign.center,
+                            "Combining a passion for continuous learning with a keen interest in application development and UX design, I am eager to contribute to a dynamic team and cultivate my expertise. ",
+                            style: TextStyle(
+                                color: Colors.white,
+                                backgroundColor: Colors.black),
                           ),
                         ),
                       ),
@@ -73,14 +70,6 @@ class _AboutComponentState extends State<AboutComponent> {
                       ),
                     ],
                   ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  textAlign: TextAlign.center,
-                  "Combining a passion for continuous learning with a keen interest in application development and UX design, I am eager to contribute to a dynamic team and cultivate my expertise. I'm seeking a growth-oriented position to further expand my knowledge and skills in a stimulating professional environment.",
-                  style: TextStyle(),
                 ),
               ),
               Row(

@@ -35,6 +35,7 @@ class _GitHubComponentState extends State<GitHubComponent> {
     "PureBasic": 0
   };
   late num total = 0;
+  late bool getting;
 
   void getGH_user() async {
     //get the user object then get the repos
@@ -110,6 +111,7 @@ class _GitHubComponentState extends State<GitHubComponent> {
         });
       }
     }
+    doneGH();
   }
 
   //"languages_url"
@@ -143,8 +145,15 @@ class _GitHubComponentState extends State<GitHubComponent> {
     }
   }
 
+  void doneGH() {
+    setState(() {
+      getting = false;
+    });
+  }
+
   @override
   void initState() {
+    getting = true;
     getGH_user();
     super.initState();
   }
@@ -158,103 +167,33 @@ class _GitHubComponentState extends State<GitHubComponent> {
     keyValueList.sort((a, b) => b.value.compareTo(a.value));
 
     return width < 500
-        ? ListView(
-            shrinkWrap: true,
+        ? Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(
-                  elevation: 15,
-                  child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+              getting
+                  ? Text('Requesting Updated Stats from GitHub')
+                  : Row(
                       children: [
-                        const Text(
-                          'Repositories Created',
-                          style: TextStyle(
-                              fontSize: 32, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          user.isNotEmpty
-                              ? user['public_repos'].toString()
-                              : 'No data available',
-                          style: const TextStyle(fontSize: 26.0),
+                        Text('GitHub by the Numbers'),
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: AssetImage("lib/assets/git.png"),
+                                fit: BoxFit.fitHeight),
+                          ),
                         ),
                       ],
                     ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(
-                  elevation: 15,
-                  child: Container(
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Top 3 Languages Used',
-                            style: TextStyle(
-                                fontSize: 32, fontWeight: FontWeight.bold),
-                          ),
-                          ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: 3,
-                            itemBuilder: (context, index) {
-                              final key = keyValueList[index].key;
-                              final value = keyValueList[index].value;
-                              return ListTile(
-                                title: Center(child: Text(key)),
-                                subtitle: Center(
-                                    child: Text('${(value / total) * 100} %')),
-                              );
-                            },
-                          ),
-                        ]),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(
-                  elevation: 15,
-                  child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Commits Made',
-                          style: TextStyle(
-                              fontSize: 32, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          numberOfCommits > 0
-                              ? numberOfCommits.toString()
-                              : 'No data available',
-                          style: const TextStyle(fontSize: 26.0),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          )
-        : SizedBox(
-            height: height * .33,
-            width: width,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Flexible(
-                  child: Padding(
+              ListView(
+                shrinkWrap: true,
+                children: [
+                  Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Card(
                       elevation: 15,
                       child: Container(
-                        height: double.infinity,
-                        width: double.infinity,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -274,15 +213,11 @@ class _GitHubComponentState extends State<GitHubComponent> {
                       ),
                     ),
                   ),
-                ),
-                Flexible(
-                  child: Padding(
+                  Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Card(
                       elevation: 15,
                       child: Container(
-                        height: double.infinity,
-                        width: double.infinity,
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -309,15 +244,11 @@ class _GitHubComponentState extends State<GitHubComponent> {
                       ),
                     ),
                   ),
-                ),
-                Flexible(
-                  child: Padding(
+                  Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Card(
                       elevation: 15,
                       child: Container(
-                        height: double.infinity,
-                        width: double.infinity,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -337,9 +268,132 @@ class _GitHubComponentState extends State<GitHubComponent> {
                       ),
                     ),
                   ),
+                ],
+              ),
+            ],
+          )
+        : Column(
+            children: [
+              getting
+                  ? Text('Requesting Updated Stats from GitHub')
+                  : Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      Text('GitHub '),
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image: AssetImage("lib/assets/git.png"),
+                              fit: BoxFit.fitHeight),
+                        ),
+                      ),
+                      Text(' Activity'),
+                    ]),
+              SizedBox(
+                height: height * .33,
+                width: width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          elevation: 15,
+                          child: Container(
+                            height: double.infinity,
+                            width: double.infinity,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Repositories Created',
+                                  style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  user.isNotEmpty
+                                      ? user['public_repos'].toString()
+                                      : 'No data available',
+                                  style: const TextStyle(fontSize: 26.0),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          elevation: 15,
+                          child: Container(
+                            height: double.infinity,
+                            width: double.infinity,
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    'Top 3 Languages Used',
+                                    style: TextStyle(
+                                        fontSize: 32,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: 3,
+                                    itemBuilder: (context, index) {
+                                      final key = keyValueList[index].key;
+                                      final value = keyValueList[index].value;
+                                      return ListTile(
+                                        title: Center(child: Text(key)),
+                                        subtitle: Center(
+                                            child: Text(
+                                                '${(value / total) * 100} %')),
+                                      );
+                                    },
+                                  ),
+                                ]),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          elevation: 15,
+                          child: Container(
+                            height: double.infinity,
+                            width: double.infinity,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Commits Made',
+                                  style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  numberOfCommits > 0
+                                      ? numberOfCommits.toString()
+                                      : 'No data available',
+                                  style: const TextStyle(fontSize: 26.0),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           );
   }
 }
