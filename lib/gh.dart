@@ -289,6 +289,10 @@ class _GitHubComponentState extends State<GitHubComponent> {
                       Text(' Activity'),
                     ]),
               SizedBox(
+                height: height * .1,
+                width: double.infinity,
+              ),
+              SizedBox(
                 height: height * .33,
                 width: width,
                 child: Row(
@@ -391,27 +395,6 @@ class _GitHubComponentState extends State<GitHubComponent> {
                   ],
                 ),
               ),
-              // SizedBox(
-              //   height: height,
-              //   width: width,
-              //   child: GridView.extent(
-              //     maxCrossAxisExtent: 200.0, // maximum item width
-              //     mainAxisSpacing: 8.0, // spacing between rows
-              //     crossAxisSpacing: 8.0, // spacing between columns
-              //     padding: EdgeInsets.all(8.0), // padding around the grid
-              //     children: repos.map((item) {
-              //       return Container(
-              //         color: Colors.blue, // color of grid items
-              //         child: Center(
-              //           child: Text(
-              //             item['name'],
-              //             style: TextStyle(fontSize: 18.0, color: Colors.white),
-              //           ),
-              //         ),
-              //       );
-              //     }).toList(),
-              //   ),
-              // )
             ],
           );
   }

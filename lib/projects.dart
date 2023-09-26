@@ -40,6 +40,17 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
         : SingleChildScrollView(
             child: Column(
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Featured '),
+                    Icon(
+                      Icons.account_tree_sharp,
+                      size: 50,
+                    ),
+                    Text(' Projects'),
+                  ],
+                ),
                 SizedBox(
                   height: height * .1,
                   width: double.infinity,
@@ -109,6 +120,10 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                         ),
                                       ],
                                     ),
+                                  ),
+                                  SizedBox(
+                                    height: height * .05,
+                                    width: double.infinity,
                                   ),
                                 ],
                               ),
@@ -186,6 +201,10 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                         ),
                                       ],
                                     ),
+                                  ),
+                                  SizedBox(
+                                    height: height * .05,
+                                    width: double.infinity,
                                   ),
                                 ],
                               ),
@@ -267,6 +286,10 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                       ],
                                     ),
                                   ),
+                                  SizedBox(
+                                    height: height * .05,
+                                    width: double.infinity,
+                                  ),
                                 ],
                               ),
                             ),
@@ -276,130 +299,6 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                     ),
                   ],
                 ),
-                // Row(
-                //   children: [
-                //     Flexible(
-                //       child: Padding(
-                //         padding: const EdgeInsets.all(8.0),
-                //         child: Container(
-                //           child: Row(
-                //             mainAxisAlignment: MainAxisAlignment.center,
-                //             children: [
-                //               SvgPicture.asset(
-                //                 'lib/assets/dart-original-wordmark.svg',
-                //                 semanticsLabel: 'dart icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/flutter-original.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/materialui-original.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/apple-original.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //             ],
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //     Flexible(
-                //       child: Padding(
-                //         padding: const EdgeInsets.all(8.0),
-                //         child: Container(
-                //           child: Row(
-                //             mainAxisAlignment: MainAxisAlignment.center,
-                //             children: [
-                //               SvgPicture.asset(
-                //                 'lib/assets/dart-original-wordmark.svg',
-                //                 semanticsLabel: 'dart icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/flutter-original.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/materialui-original.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/firebase-plain-wordmark.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/apple-original.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //             ],
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //     Flexible(
-                //       child: Padding(
-                //         padding: const EdgeInsets.all(8.0),
-                //         child: Container(
-                //           child: Row(
-                //             mainAxisAlignment: MainAxisAlignment.center,
-                //             children: [
-                //               SvgPicture.asset(
-                //                 'lib/assets/mongodb-original-wordmark.svg',
-                //                 semanticsLabel: 'dart icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/express-original-wordmark.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/react-original-wordmark.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/nodejs-plain-wordmark.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //               SvgPicture.asset(
-                //                 'lib/assets/graphql-plain-wordmark.svg',
-                //                 semanticsLabel: 'material ui icon',
-                //                 height: 50,
-                //                 width: 50,
-                //               ),
-                //             ],
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
                 SizedBox(
                   height: height * .1,
                   width: double.infinity,
