@@ -16,6 +16,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
   late bool project2;
   late bool project3;
   late bool hovering;
+  late int details;
 
   @override
   void initState() {
@@ -23,6 +24,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
     project2 = false;
     project3 = false;
     hovering = false;
+    details = 0;
     super.initState();
   }
 
@@ -58,7 +60,21 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                   children: [
                     Flexible(
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          setState(() {
+                            if (details != 1) {
+                              details = 1;
+                              project1 = true;
+                              project2 = false;
+                              project3 = false;
+                            } else {
+                              details = 0;
+                              project1 = false;
+                              project2 = false;
+                              project3 = false;
+                            }
+                          });
+                        },
                         hoverColor: Colors.white,
                         onHover: (value) {
                           setState(() {
@@ -89,36 +105,82 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        SvgPicture.asset(
-                                          'lib/assets/dart-original-wordmark.svg',
-                                          semanticsLabel: 'dart icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/flutter-original.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/materialui-original.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/apple-original.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                      ],
-                                    ),
+                                    child: details == 1
+                                        ? SizedBox(
+                                            height: height * .3,
+                                            width: width,
+                                            child: Card(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                      "Denver Train Tracker",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                        'This Flutter app built for iOS uses GTFS-RT data feeds to show users a list of trains, the train position on Google Maps along a polyline route relative to their own, and alert information updated every 2 minutes.'),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                        'This project helped me learn how to consume GTFS data, draw polyline routes on a Google Map, and deploy apps to Apples Test Flight program to testing and distribution.'),
+                                                  ),
+                                                  ElevatedButton(
+                                                      onPressed: () {},
+                                                      child: Text('Git Repo'))
+                                                ],
+                                              ),
+                                            ),
+                                          )
+                                        : Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              SvgPicture.asset(
+                                                'lib/assets/dart-original-wordmark.svg',
+                                                semanticsLabel: 'dart icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/flutter-original.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/materialui-original.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/apple-original.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                            ],
+                                          ),
                                   ),
                                   SizedBox(
                                     height: height * .05,
@@ -133,7 +195,21 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                     ),
                     Flexible(
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          setState(() {
+                            if (details != 2) {
+                              details = 2;
+                              project1 = false;
+                              project2 = true;
+                              project3 = false;
+                            } else {
+                              details = 0;
+                              project1 = false;
+                              project2 = false;
+                              project3 = false;
+                            }
+                          });
+                        },
                         hoverColor: Colors.white,
                         onHover: (value) {
                           setState(() {
@@ -164,42 +240,89 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        SvgPicture.asset(
-                                          'lib/assets/dart-original-wordmark.svg',
-                                          semanticsLabel: 'dart icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/flutter-original.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/materialui-original.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/firebase-plain-wordmark.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/apple-original.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                      ],
-                                    ),
+                                    child: details == 2
+                                        ? SizedBox(
+                                            height: height * .3,
+                                            width: width,
+                                            child: Card(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                      "\"Sniffer\"",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                        'A social networking app for dog owners for doggy play dates.  Users can create dog profiles, chat with dogs seen in the tinder style card feed, find dogs near them on a Google Map, and save a list of favorites.'),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                        'Firebase Firestore provides the backend for user and dog information and chat transcripts, image storage is through Firebase Cloud Storage, and Firebase Auth provides basic authentication. Google Maps API provides the map view.'),
+                                                  ),
+                                                  ElevatedButton(
+                                                      onPressed: () {},
+                                                      child: Text('Git Repo'))
+                                                ],
+                                              ),
+                                            ),
+                                          )
+                                        : Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              SvgPicture.asset(
+                                                'lib/assets/dart-original-wordmark.svg',
+                                                semanticsLabel: 'dart icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/flutter-original.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/materialui-original.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/firebase-plain-wordmark.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/apple-original.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                            ],
+                                          ),
                                   ),
                                   SizedBox(
                                     height: height * .05,
@@ -214,7 +337,21 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                     ),
                     Flexible(
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          setState(() {
+                            if (details != 3) {
+                              details = 3;
+                              project1 = false;
+                              project2 = false;
+                              project3 = true;
+                            } else {
+                              details = 0;
+                              project1 = false;
+                              project2 = false;
+                              project3 = false;
+                            }
+                          });
+                        },
                         hoverColor: Colors.white,
                         onHover: (value) {
                           setState(() {
@@ -248,42 +385,89 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        SvgPicture.asset(
-                                          'lib/assets/mongodb-original-wordmark.svg',
-                                          semanticsLabel: 'dart icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/express-original-wordmark.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/react-original-wordmark.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/nodejs-plain-wordmark.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SvgPicture.asset(
-                                          'lib/assets/graphql-plain-wordmark.svg',
-                                          semanticsLabel: 'material ui icon',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                      ],
-                                    ),
+                                    child: details == 3
+                                        ? SizedBox(
+                                            height: height * .3,
+                                            width: width,
+                                            child: Card(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                      "Scaling Lamp",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                        'A MERN stack application modeling an e-commerce website to demonstrate full CRUD funtionality allowing a user to browse, create, update, and delete product.'),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                        'User and product information is stored on MongoDB and accessed through a GraphQL assisted Express API. User authenticaion is handled by JWTAuth Tokens saved to LocalStorage.  React Bootstrap was used for styling.'),
+                                                  ),
+                                                  ElevatedButton(
+                                                      onPressed: () {},
+                                                      child: Text('Git Repo'))
+                                                ],
+                                              ),
+                                            ),
+                                          )
+                                        : Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              SvgPicture.asset(
+                                                'lib/assets/mongodb-original-wordmark.svg',
+                                                semanticsLabel: 'dart icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/express-original-wordmark.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/react-original-wordmark.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/nodejs-plain-wordmark.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/graphql-plain-wordmark.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                            ],
+                                          ),
                                   ),
                                   SizedBox(
                                     height: height * .05,
