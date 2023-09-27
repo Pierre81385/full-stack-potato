@@ -40,15 +40,14 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
         : SingleChildScrollView(
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Featured '),
                     Icon(
                       Icons.account_tree_sharp,
                       size: 50,
                     ),
-                    Text(' Projects'),
+                    Text('Featured Projects'),
                   ],
                 ),
                 SizedBox(
