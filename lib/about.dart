@@ -100,6 +100,14 @@ class _AboutComponentState extends State<AboutComponent> {
                     height: height * .1,
                     width: double.infinity,
                   ),
+                  Container(
+                    height: height * .33,
+                    width: width,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            alignment: Alignment.bottomRight,
+                            image: AssetImage("lib/assets/IMG_1256.png"))),
+                  )
                 ],
               ),
             ],
