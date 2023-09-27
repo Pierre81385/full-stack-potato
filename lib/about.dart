@@ -67,7 +67,7 @@ class _AboutComponentState extends State<AboutComponent> {
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             textAlign: TextAlign.center,
-                            "In my free time I've continued to expand my knowlege through a variety of personal projects. Leaving the bootcamp with a solid foundation in the MERN stack, I've since expanded into projects using AWS (like S3 as a backend and EC2 hosting), Flutter and Dart mobile and web applications, and using Firebase for Authentication, Cloud storage, or NoSQL database solutions. Currently my mobile application for tracking light rail trains around Denver using GTFS real time data streams is deployable via TestFlight on iOS devices, and this experience has led to recent opportunities in the ClickUp Mobile Development team.  I currently contribute code fixes for bugs and feature requests for the ClickUp mobile app!",
+                            "In my free time I've continued to expand my knowlege through a variety of personal projects. Leaving the bootcamp with a solid foundation in the MERN stack, I've since expanded into projects using AWS (like S3 as a backend and EC2 hosting), Flutter and Dart mobile and web applications, and using Firebase for Authentication, Cloud storage, or NoSQL database solutions. Currently my mobile application for tracking light rail trains around Denver using GTFS real time data streams is deployable via TestFlight on iOS devices, and this experience has led to recent opportunities in the ClickUp Mobile Development team.  I currently contribute code fixes for bugs and feature requests for the ClickUp mobile app as a professional side project!",
                             style: TextStyle(color: Colors.black54),
                           ),
                         ),
@@ -91,6 +91,10 @@ class _AboutComponentState extends State<AboutComponent> {
                   SizedBox(
                     height: height * .1,
                     width: double.infinity,
+                  ),
+                  Center(
+                    child: Text(
+                        'Feel free to leave me a message here with any feedback or questions, or just to say hi!'),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),

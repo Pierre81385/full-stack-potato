@@ -70,18 +70,21 @@ class _CommentsState extends State<Comments> {
                         fillColor: Colors.white,
                         icon: Icon(Icons.edit)),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      addComment();
-                      setState(() {
-                        nameTextController.text = "";
-                        commentTextController.text = "";
-                        focusName.unfocus();
-                        focusComment.unfocus();
-                      });
-                    },
-                    child: Text(
-                      "Add Comment",
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        addComment();
+                        setState(() {
+                          nameTextController.text = "";
+                          commentTextController.text = "";
+                          focusName.unfocus();
+                          focusComment.unfocus();
+                        });
+                      },
+                      child: Text(
+                        "Add Comment",
+                      ),
                     ),
                   ),
                 ],
