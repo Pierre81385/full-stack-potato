@@ -169,21 +169,25 @@ class _GitHubComponentState extends State<GitHubComponent> {
             children: [
               getting
                   ? Text('Requesting Updated Stats from GitHub')
-                  : Row(
+                  : Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text('GitHub by the Numbers'),
-                        Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                                image: AssetImage("lib/assets/git.png"),
-                                fit: BoxFit.fitHeight),
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage("lib/assets/git.png"),
+                                  fit: BoxFit.fitHeight),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
+                          Text('GitHub Activity'),
+                        ]),
+              SizedBox(
+                height: height * .1,
+                width: double.infinity,
+              ),
               ListView(
                 shrinkWrap: true,
                 children: [

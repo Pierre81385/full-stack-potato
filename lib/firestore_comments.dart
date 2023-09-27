@@ -43,8 +43,7 @@ class _CommentsState extends State<Comments> {
     }
 
     return SizedBox(
-      width: width * .66,
-      height: height * .33,
+      height: width < 500 ? height * .5 : height * .33,
       child: Column(
         children: [
           Padding(
