@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 
+//https://www.reddit.com/r/badUIbattles/comments/16umqna/accessible_negative_feedback_form/?utm_source=share&utm_medium=web2x&context=3
+
 class InputComponent extends StatefulWidget {
   const InputComponent({super.key});
 
@@ -111,27 +113,38 @@ class _InputComponentState extends State<InputComponent> {
 
     return Column(
       children: [
+        width < 500
+            ? Text(
+                textAlign: TextAlign.center,
+                'Your opinion is important to me!  Please use this dedicated form for any negative feedback!',
+              )
+            : SizedBox(),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
-            width: width * .5,
-            child: Form(
-              child: TextFormField(
-                readOnly: true,
-                controller: complaintTextController,
-                focusNode: focusComplaint,
-                decoration: const InputDecoration(
-                    labelText:
-                        'Your opinion is important to me!  Please use this dedicated form for any negative feedback!',
-                    fillColor: Colors.white,
-                    icon: Icon(Icons.note_alt_outlined)),
+            width: width < 500 ? width : width * .5,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Form(
+                child: TextFormField(
+                  readOnly: true,
+                  controller: complaintTextController,
+                  focusNode: focusComplaint,
+                  decoration: InputDecoration(
+                      labelText: width < 500
+                          ? ''
+                          : 'Your opinion is important to me!  Please use this dedicated form for any negative feedback!',
+                      fillColor: Colors.white,
+                      icon: Icon(Icons.note_alt_outlined)),
+                ),
               ),
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text('* Scroll left or right for input.'),
+          child:
+              Text('* scroll left or right to use accessible onscreen input'),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -225,7 +238,7 @@ class _InputComponentState extends State<InputComponent> {
             }
 
             return SizedBox(
-              width: width * .5,
+              width: width < 500 ? width : width * .5,
               child: ListView(
                 shrinkWrap: true,
                 children: snapshot.data!.docs.map((DocumentSnapshot document) {

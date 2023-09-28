@@ -449,6 +449,24 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                 ),
               ),
               const GitHubComponent(),
+              SizedBox(
+                height: height * .1,
+                width: double.infinity,
+              ),
+              Icon(
+                Icons.feed_outlined,
+                size: 50,
+              ),
+              Text('Negative Feedback Form, for r/badUIbattles'),
+              SizedBox(
+                height: height * .1,
+                width: double.infinity,
+              ),
+              InputComponent(),
+              SizedBox(
+                height: height * .1,
+                width: double.infinity,
+              ),
             ],
           )
         : SingleChildScrollView(
@@ -901,7 +919,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                   Icons.feed_outlined,
                   size: 50,
                 ),
-                Text('Negative Feedback Form'),
+                Text('Negative Feedback Form, for r/badUIbattles'),
                 SizedBox(
                   height: height * .1,
                   width: double.infinity,
