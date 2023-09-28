@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:full_potatop/input.dart';
 
 class ExperienceComponent extends StatefulWidget {
   const ExperienceComponent({
@@ -20,6 +21,6 @@ class _ExperienceComponentState extends State<ExperienceComponent> {
     Size media = MediaQuery.of(context).size;
     double height = media.height;
     double width = media.width;
-    return width < 500 ? Text("Mobile Experience") : Text("Desktop Experience");
+    return width < 500 ? Text("Mobile Experience") : InputComponent();
   }
 }
