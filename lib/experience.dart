@@ -21,6 +21,6 @@ class _ExperienceComponentState extends State<ExperienceComponent> {
     Size media = MediaQuery.of(context).size;
     double height = media.height;
     double width = media.width;
-    return width < 500 ? Text("Mobile Experience") : InputComponent();
+    return width < 500 ? Text("Mobile Experience") : Text('Desktop Experience');
   }
 }

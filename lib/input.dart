@@ -122,12 +122,16 @@ class _InputComponentState extends State<InputComponent> {
                 focusNode: focusComplaint,
                 decoration: const InputDecoration(
                     labelText:
-                        'To report a problem please leave a comment here!',
+                        'Your opinion is important to me!  Please use this dedicated form for any negative feedback!',
                     fillColor: Colors.white,
                     icon: Icon(Icons.note_alt_outlined)),
               ),
             ),
           ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text('* Scroll left or right for input.'),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -143,6 +147,7 @@ class _InputComponentState extends State<InputComponent> {
                   },
                   child: Text("Reset")),
             ),
+            Icon(Icons.arrow_back_ios),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
@@ -192,6 +197,7 @@ class _InputComponentState extends State<InputComponent> {
                 ),
               ),
             ),
+            Icon(Icons.arrow_forward_ios),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(

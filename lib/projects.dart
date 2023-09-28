@@ -1,6 +1,10 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:full_potatop/firestore_comments.dart';
 import 'package:full_potatop/gh.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:full_potatop/input.dart';
 
 class ProjectsComponent extends StatefulWidget {
   const ProjectsComponent({
@@ -889,6 +893,20 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                   width: double.infinity,
                 ),
                 const GitHubComponent(),
+                SizedBox(
+                  height: height * .1,
+                  width: double.infinity,
+                ),
+                Icon(
+                  Icons.feed_outlined,
+                  size: 50,
+                ),
+                Text('Negative Feedback Form'),
+                SizedBox(
+                  height: height * .1,
+                  width: double.infinity,
+                ),
+                InputComponent(),
                 SizedBox(
                   height: height * .1,
                   width: double.infinity,
