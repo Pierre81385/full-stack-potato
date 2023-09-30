@@ -1,10 +1,8 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:full_potatop/firestore_comments.dart';
 import 'package:full_potatop/gh.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:full_potatop/input.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectsComponent extends StatefulWidget {
   const ProjectsComponent({

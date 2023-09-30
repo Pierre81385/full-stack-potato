@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:full_potatop/firestore_comments.dart';
-import 'package:full_potatop/gh.dart';
 
 class AboutComponent extends StatefulWidget {
   const AboutComponent({
@@ -75,6 +74,19 @@ class _AboutComponentState extends State<AboutComponent> {
                       ),
                     ),
                   ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 400,
+                width: 400,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("lib/assets/lilme.png"),
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
             ),
