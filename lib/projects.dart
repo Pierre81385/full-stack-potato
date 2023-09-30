@@ -134,7 +134,10 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                                   'This project helped me learn how to consume GTFS data, draw polyline routes on a Google Map, and deploy apps to Apples Test Flight program to testing and distribution.'),
                                             ),
                                             ElevatedButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  launchUrl(Uri.parse(
+                                                      'https://github.com/Pierre81385/rtd_flutter'));
+                                                },
                                                 child: const Text('Git Repo'))
                                           ],
                                         ),
@@ -259,7 +262,10 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                                   'Firebase Firestore provides the backend for user and dog information and chat transcripts, image storage is through Firebase Cloud Storage, and Firebase Auth provides basic authentication. Google Maps API provides the map view.'),
                                             ),
                                             ElevatedButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  launchUrl(Uri.parse(
+                                                      'https://github.com/Pierre81385/matchdotdog'));
+                                                },
                                                 child: const Text('Git Repo'))
                                           ],
                                         ),
@@ -393,7 +399,10 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                                   'User and product information is stored on MongoDB and accessed through a GraphQL assisted Express API. User authenticaion is handled by JWTAuth Tokens saved to LocalStorage.  React Bootstrap was used for styling.'),
                                             ),
                                             ElevatedButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  launchUrl(Uri.parse(
+                                                      'https://github.com/Pierre81385/scaling-lamp'));
+                                                },
                                                 child: const Text('Git Repo'))
                                           ],
                                         ),
@@ -567,7 +576,10 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                                         'This project helped me learn how to consume GTFS data, draw polyline routes on a Google Map, and deploy apps to Apples Test Flight program to testing and distribution.'),
                                                   ),
                                                   ElevatedButton(
-                                                      onPressed: () {},
+                                                      onPressed: () {
+                                                        launchUrl(Uri.parse(
+                                                            'https://github.com/Pierre81385/rtd_flutter'));
+                                                      },
                                                       child: const Text(
                                                           'Git Repo'))
                                                 ],
@@ -700,7 +712,10 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                                         'Firebase Firestore provides the backend for user and dog information and chat transcripts, image storage is through Firebase Cloud Storage, and Firebase Auth provides basic authentication. Google Maps API provides the map view.'),
                                                   ),
                                                   ElevatedButton(
-                                                      onPressed: () {},
+                                                      onPressed: () {
+                                                        launchUrl(Uri.parse(
+                                                            'https://github.com/Pierre81385/matchdotdog'));
+                                                      },
                                                       child: const Text(
                                                           'Git Repo'))
                                                 ],
@@ -843,7 +858,10 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                                         'User and product information is stored on MongoDB and accessed through a GraphQL assisted Express API. User authenticaion is handled by JWTAuth Tokens saved to LocalStorage.  React Bootstrap was used for styling.'),
                                                   ),
                                                   ElevatedButton(
-                                                      onPressed: () {},
+                                                      onPressed: () {
+                                                        launchUrl(Uri.parse(
+                                                            'https://github.com/Pierre81385/scaling-lamp'));
+                                                      },
                                                       child: const Text(
                                                           'Git Repo'))
                                                 ],
