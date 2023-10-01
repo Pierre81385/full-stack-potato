@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:full_potatop/input.dart';
 import 'package:full_potatop/skills.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExperienceComponent extends StatefulWidget {
   const ExperienceComponent({
@@ -46,8 +47,18 @@ class _ExperienceComponentState extends State<ExperienceComponent> {
           width: width < 500 ? width : width * .5,
           child: Column(
             children: [
-              Text(
-                  'I have experience building applications for personal, professional, and educational projects primarily using React or Flutter.  ')
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                    textAlign: TextAlign.center,
+                    'I have experience building applications for personal, professional, and educational projects primarily using React or Flutter, and integrating a wide variety of technologies.  '),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    launchUrl(Uri.parse(
+                        'https://drive.google.com/drive/folders/1B1LIT2VLmOSoacpoUlpuGvaWajMmVv1c?usp=sharing'));
+                  },
+                  child: const Text('Resume & Coverletter'))
             ],
           ),
         ),
