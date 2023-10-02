@@ -58,15 +58,19 @@ class _HeaderComponentState extends State<HeaderComponent> {
                           ),
                           SizedBox(
                             width: double.infinity,
-                            child: Text(
-                              "Full Stack Web Developer".toUpperCase(),
-                              textAlign: TextAlign.right,
-                              style: TextStyle(
-                                backgroundColor: Colors.white,
-                                color: Colors.black,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Full Stack Web Developer".toUpperCase(),
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(
+                                    backgroundColor: Colors.white,
+                                    color: Colors.black,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(

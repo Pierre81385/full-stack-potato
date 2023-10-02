@@ -5,6 +5,7 @@ import 'package:full_potatop/firestore_comments.dart';
 import 'package:full_potatop/header.dart';
 import 'package:full_potatop/navigation.dart';
 import 'package:full_potatop/projects.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -18,6 +19,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _hero = true;
   int _selectedIndex = 1;
+  String _phone = 'tel:+1-720-272-5223';
+  String _email = 'pjb.den@gmail.com';
+
+  String? encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((MapEntry<String, String> e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
+  }
+// ···
 
   void _onSelect(int index) {
     setState(() {
@@ -82,12 +93,111 @@ class _HomePageState extends State<HomePage> {
                                   ? Column(
                                       children: [
                                         Text('PETER JOHN BISHOP'),
-                                        Text('full stack developer')
+                                        Text('full stack developer'),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            IconButton(
+                                              icon: Icon(Icons.phone),
+                                              onPressed: () {
+                                                launchUrl(Uri(
+                                                    scheme: 'tel',
+                                                    path: _phone));
+                                              },
+                                            ),
+                                            Text(
+                                              "/ ".toUpperCase(),
+                                              textAlign: TextAlign.right,
+                                              style: TextStyle(
+                                                backgroundColor: Colors.white,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            IconButton(
+                                              icon: Icon(Icons.email),
+                                              onPressed: () {
+                                                final Uri emailLaunchUri = Uri(
+                                                  scheme: 'mailto',
+                                                  path: _email,
+                                                  query:
+                                                      encodeQueryParameters(<String,
+                                                          String>{
+                                                    'subject': 'Hey, Peter!',
+                                                  }),
+                                                );
+
+                                                launchUrl(emailLaunchUri);
+                                              },
+                                            ),
+                                          ],
+                                        ),
                                       ],
                                     )
-                                  : Text(
-                                      "PETER JOHN BISHOP / FULL STACK DEVELOPER",
-                                      style: TextStyle(color: Colors.black),
+                                  : Column(
+                                      children: [
+                                        Text(
+                                          "PETER JOHN BISHOP / FULL STACK DEVELOPER",
+                                          style: TextStyle(color: Colors.black),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            TextButton(
+                                              onPressed: () {
+                                                launchUrl(Uri(
+                                                    scheme: 'tel',
+                                                    path: _phone));
+                                              },
+                                              child: Text(
+                                                "720.272.5223".toUpperCase(),
+                                                textAlign: TextAlign.right,
+                                                style: TextStyle(
+                                                  backgroundColor: Colors.white,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              "/ ".toUpperCase(),
+                                              textAlign: TextAlign.right,
+                                              style: TextStyle(
+                                                backgroundColor: Colors.white,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            TextButton(
+                                              onPressed: () {
+                                                final Uri emailLaunchUri = Uri(
+                                                  scheme: 'mailto',
+                                                  path: _email,
+                                                  query:
+                                                      encodeQueryParameters(<String,
+                                                          String>{
+                                                    'subject': 'Hey, Peter!',
+                                                  }),
+                                                );
+
+                                                launchUrl(emailLaunchUri);
+                                              },
+                                              child: Text(
+                                                "pjb.den@gmail.com"
+                                                    .toUpperCase(),
+                                                textAlign: TextAlign.right,
+                                                style: TextStyle(
+                                                  backgroundColor: Colors.white,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                             ),
                             NavComponent(
