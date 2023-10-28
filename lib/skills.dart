@@ -20,8 +20,8 @@ class _SkillStackState extends State<SkillStack> {
       width: 50,
     ),
     SvgPicture.asset(
-      'lib/assets/apple-original.svg',
-      semanticsLabel: 'apple icon',
+      'lib/assets/socketio-original-wordmark.svg',
+      semanticsLabel: 'socket.io icon',
       height: 50,
       width: 50,
     ),
@@ -196,164 +196,182 @@ class _SkillStackState extends State<SkillStack> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-        height: widget.height,
-        width: widget.width,
-        child: Column(
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[0],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[1],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[2],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[3],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[4],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[5],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[6],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[7],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[8],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[9],
-                      ),
-                    ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[0],
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[20],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[21],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[22],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[23],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[24],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[25],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[26],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[27],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[28],
-                      ),
-                      Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("lib/assets/jwt.png"),
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ),
-                      )
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[1],
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[10],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[11],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[12],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[13],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[14],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[15],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[16],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[17],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[18],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: svg[19],
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[2],
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[3],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[4],
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[20],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[21],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[22],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[23],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[24],
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("lib/assets/jwt.png"),
+                        fit: BoxFit.fitWidth,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[10],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[11],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[12],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[13],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[14],
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[5],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[6],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[7],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[8],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[9],
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[15],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[16],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[17],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[18],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[19],
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[25],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[26],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[27],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: svg[28],
+                  ),
+                ],
+              ),
             ),
           ],
-        ));
+        ),
+      ],
+    );
   }
 }

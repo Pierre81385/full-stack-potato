@@ -357,7 +357,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: const AssetImage(
-                                          "lib/assets/ecom.gif"),
+                                          "lib/assets/aol.png"),
                                       fit: width < 500
                                           ? BoxFit.fitHeight
                                           : BoxFit.fitHeight),
@@ -382,7 +382,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                             const Padding(
                                               padding: EdgeInsets.all(8.0),
                                               child: Text(
-                                                "Scaling Lamp",
+                                                "AOL | CHAT",
                                                 style: TextStyle(
                                                     fontWeight:
                                                         FontWeight.bold),
@@ -391,17 +391,17 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                             const Padding(
                                               padding: EdgeInsets.all(8.0),
                                               child: Text(
-                                                  'A MERN stack application modeling an e-commerce website to demonstrate full CRUD funtionality allowing a user to browse, create, update, and delete product.'),
+                                                  'This is a project to explore the use of Socket.io in a new MERN stack appication, while refreshing my knowlege of the MERN stack and related technologies. The concept here was to create an essentially anonymous chat room experience that also offered private group rooms controlled by room owners, and private chatting through direct messages between users.'),
                                             ),
                                             const Padding(
                                               padding: EdgeInsets.all(8.0),
                                               child: Text(
-                                                  'User and product information is stored on MongoDB and accessed through a GraphQL assisted Express API. User authenticaion is handled by JWTAuth Tokens saved to LocalStorage.  React Bootstrap was used for styling.'),
+                                                  'This is a React app using React Bootstrap for styling components. The API uses Node, Express, and Axios with CORS to make requests. Users are authenticated by issuing them 24h JSON Web Tokens at login after verifying their Bcrypt encrypted username and password combinations.  Data is stored in Atlas MongoDB in two Collections with Documents storing nested arrays and objects to organize all of the information.  Realtime updates to online status, message notifications, room membership, and realtime chatting is made possible through Socket.io!'),
                                             ),
                                             ElevatedButton(
                                                 onPressed: () {
                                                   launchUrl(Uri.parse(
-                                                      'https://github.com/Pierre81385/scaling-lamp'));
+                                                      'https://github.com/Pierre81385/shiny-bassoon-mern'));
                                                 },
                                                 child: const Text('Git Repo'))
                                           ],
@@ -437,7 +437,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                         width: 50,
                                       ),
                                       SvgPicture.asset(
-                                        'lib/assets/graphql-plain-wordmark.svg',
+                                        'lib/assets/socketio-original-wordmark.svg',
                                         semanticsLabel: 'material ui icon',
                                         height: 50,
                                         width: 50,
@@ -547,42 +547,50 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                             height: height * .3,
                                             width: width,
                                             child: Card(
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                      "Denver Train Tracker",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold),
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                        "Denver Train Tracker",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
                                                     ),
-                                                  ),
-                                                  const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                        'This Flutter app built for iOS uses GTFS-RT data feeds to show users a list of trains, the train position on Google Maps along a polyline route relative to their own, and alert information updated every 2 minutes.'),
-                                                  ),
-                                                  const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                        'This project helped me learn how to consume GTFS data, draw polyline routes on a Google Map, and deploy apps to Apples Test Flight program to testing and distribution.'),
-                                                  ),
-                                                  ElevatedButton(
-                                                      onPressed: () {
-                                                        launchUrl(Uri.parse(
-                                                            'https://github.com/Pierre81385/rtd_flutter'));
-                                                      },
-                                                      child: const Text(
-                                                          'Git Repo'))
-                                                ],
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                          'This Flutter app built for iOS uses GTFS-RT data feeds to show users a list of trains, the train position on Google Maps along a polyline route relative to their own, and alert information updated every 2 minutes.'),
+                                                    ),
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                          'This project helped me learn how to consume GTFS data, draw polyline routes on a Google Map, and deploy apps to Apples Test Flight program to testing and distribution.'),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: ElevatedButton(
+                                                          onPressed: () {
+                                                            launchUrl(Uri.parse(
+                                                                'https://github.com/Pierre81385/rtd_flutter'));
+                                                          },
+                                                          child: const Text(
+                                                              'Git Repo')),
+                                                    )
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           )
@@ -683,42 +691,50 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                             height: height * .3,
                                             width: width,
                                             child: Card(
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                      "\"Sniffer\"",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold),
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                        "\"Sniffer\"",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
                                                     ),
-                                                  ),
-                                                  const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                        'A social networking app for dog owners for doggy play dates.  Users can create dog profiles, chat with dogs seen in the tinder style card feed, find dogs near them on a Google Map, and save a list of favorites.'),
-                                                  ),
-                                                  const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                        'Firebase Firestore provides the backend for user and dog information and chat transcripts, image storage is through Firebase Cloud Storage, and Firebase Auth provides basic authentication. Google Maps API provides the map view.'),
-                                                  ),
-                                                  ElevatedButton(
-                                                      onPressed: () {
-                                                        launchUrl(Uri.parse(
-                                                            'https://github.com/Pierre81385/matchdotdog'));
-                                                      },
-                                                      child: const Text(
-                                                          'Git Repo'))
-                                                ],
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                          'A social networking app for dog owners for doggy play dates.  Users can create dog profiles, chat with dogs seen in the tinder style card feed, find dogs near them on a Google Map, and save a list of favorites.'),
+                                                    ),
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                          'Firebase Firestore provides the backend for user and dog information and chat transcripts, image storage is through Firebase Cloud Storage, and Firebase Auth provides basic authentication. Google Maps API provides the map view.'),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: ElevatedButton(
+                                                          onPressed: () {
+                                                            launchUrl(Uri.parse(
+                                                                'https://github.com/Pierre81385/matchdotdog'));
+                                                          },
+                                                          child: const Text(
+                                                              'Git Repo')),
+                                                    )
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           )
@@ -814,9 +830,9 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                               image: const AssetImage(
-                                                  "lib/assets/ecom.gif"),
+                                                  "lib/assets/aol.png"),
                                               fit: width < 500
-                                                  ? BoxFit.fitHeight
+                                                  ? BoxFit.fitWidth
                                                   : BoxFit.fitHeight),
                                         ),
                                       ),
@@ -829,42 +845,50 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                             height: height * .3,
                                             width: width,
                                             child: Card(
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                      "Scaling Lamp",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold),
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                        "AOL | CHAT",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
                                                     ),
-                                                  ),
-                                                  const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                        'A MERN stack application modeling an e-commerce website to demonstrate full CRUD funtionality allowing a user to browse, create, update, and delete product.'),
-                                                  ),
-                                                  const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                        'User and product information is stored on MongoDB and accessed through a GraphQL assisted Express API. User authenticaion is handled by JWTAuth Tokens saved to LocalStorage.  React Bootstrap was used for styling.'),
-                                                  ),
-                                                  ElevatedButton(
-                                                      onPressed: () {
-                                                        launchUrl(Uri.parse(
-                                                            'https://github.com/Pierre81385/scaling-lamp'));
-                                                      },
-                                                      child: const Text(
-                                                          'Git Repo'))
-                                                ],
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                          'This is a project to explore the use of Socket.io in a new MERN stack appication, while refreshing my knowlege of the MERN stack and related technologies. The concept here was to create an essentially anonymous chat room experience that also offered private group rooms controlled by room owners, and private chatting through direct messages between users.'),
+                                                    ),
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                          'This is a React app using React Bootstrap for styling components. The API uses Node, Express, and Axios with CORS to make requests. Users are authenticated by issuing them 24h JSON Web Tokens at login after verifying their Bcrypt encrypted username and password combinations.  Data is stored in Atlas MongoDB in two Collections with Documents storing nested arrays and objects to organize all of the information.  Realtime updates to online status, message notifications, room membership, and realtime chatting is made possible through Socket.io!'),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: ElevatedButton(
+                                                          onPressed: () {
+                                                            launchUrl(Uri.parse(
+                                                                'https://github.com/Pierre81385/shiny-bassoon-mern'));
+                                                          },
+                                                          child: const Text(
+                                                              'Git Repo')),
+                                                    )
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           )
@@ -900,7 +924,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                                 width: 50,
                                               ),
                                               SvgPicture.asset(
-                                                'lib/assets/graphql-plain-wordmark.svg',
+                                                'lib/assets/socketio-original-wordmark.svg',
                                                 semanticsLabel:
                                                     'material ui icon',
                                                 height: 50,
