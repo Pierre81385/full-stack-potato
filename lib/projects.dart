@@ -1171,13 +1171,18 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                                       child: Text(
                                                           'This was primarily a test to create a way to get a JSON web token from a login POST request to use in other requests. But it was also a personal challenge to determine how to extract the keys, and handle this for objects embedded in objects at multiple levels dynaically.'),
                                                     ),
-                                                    ElevatedButton(
-                                                        onPressed: () {
-                                                          launchUrl(Uri.parse(
-                                                              'https://github.com/Pierre81385/my_clickup'));
-                                                        },
-                                                        child: const Text(
-                                                            'Git Repo'))
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: ElevatedButton(
+                                                          onPressed: () {
+                                                            launchUrl(Uri.parse(
+                                                                'https://github.com/Pierre81385/my_clickup'));
+                                                          },
+                                                          child: const Text(
+                                                              'Git Repo')),
+                                                    )
                                                   ],
                                                 ),
                                               ),
