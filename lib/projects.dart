@@ -17,6 +17,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
   late bool project1;
   late bool project2;
   late bool project3;
+  late bool project4;
   late bool hovering;
   late int details;
 
@@ -25,6 +26,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
     project1 = false;
     project2 = false;
     project3 = false;
+    project4 = false;
     hovering = false;
     details = 0;
     super.initState();
@@ -56,6 +58,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                 height: height * .1,
                 width: double.infinity,
               ),
+              //////////////////////////////////////////////////////////////////(1)
               InkWell(
                 onTap: () {
                   setState(() {
@@ -64,11 +67,13 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                       project1 = true;
                       project2 = false;
                       project3 = false;
+                      project4 = false;
                     } else {
                       details = 0;
                       project1 = false;
                       project2 = false;
                       project3 = false;
+                      project4 = false;
                     }
                   });
                 },
@@ -192,11 +197,13 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                       project1 = false;
                       project2 = true;
                       project3 = false;
+                      project4 = false;
                     } else {
                       details = 0;
                       project1 = false;
                       project2 = false;
                       project3 = false;
+                      project4 = false;
                     }
                   });
                 },
@@ -325,12 +332,14 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                       details = 3;
                       project1 = false;
                       project2 = false;
-                      project3 = true;
+                      project3 = false;
+                      project4 = true;
                     } else {
                       details = 0;
                       project1 = false;
                       project2 = false;
                       project3 = false;
+                      project4 = false;
                     }
                   });
                 },
@@ -357,7 +366,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: const AssetImage(
-                                          "lib/assets/aol.png"),
+                                          "lib/assets/api_response.gif"),
                                       fit: width < 500
                                           ? BoxFit.fitHeight
                                           : BoxFit.fitHeight),
@@ -382,7 +391,7 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                             const Padding(
                                               padding: EdgeInsets.all(8.0),
                                               child: Text(
-                                                "AOL | CHAT",
+                                                "\"API\": {RESPONSE}",
                                                 style: TextStyle(
                                                     fontWeight:
                                                         FontWeight.bold),
@@ -391,17 +400,17 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                             const Padding(
                                               padding: EdgeInsets.all(8.0),
                                               child: Text(
-                                                  'This is a project to explore the use of Socket.io in a new MERN stack appication, while refreshing my knowlege of the MERN stack and related technologies. The concept here was to create an essentially anonymous chat room experience that also offered private group rooms controlled by room owners, and private chatting through direct messages between users.'),
+                                                  'OK this week I created a mobile app that breaks down and displays the key/value pairs of JSON objects into an easy to read list, and additional pages are generated if the value of a given key is another object.  This example breaks down a login POST request response into something more readable and manageable.  The response breakdown component(s) take a JSON/Map<String, dynamic> object, so just swap out the request form for whatever API request you want 🤷🏻‍♂️and see what you get!  (Thought it looked nice modeled after an old command line interface)  '),
                                             ),
                                             const Padding(
                                               padding: EdgeInsets.all(8.0),
                                               child: Text(
-                                                  'This is a React app using React Bootstrap for styling components. The API uses Node, Express, and Axios with CORS to make requests. Users are authenticated by issuing them 24h JSON Web Tokens at login after verifying their Bcrypt encrypted username and password combinations.  Data is stored in Atlas MongoDB in two Collections with Documents storing nested arrays and objects to organize all of the information.  Realtime updates to online status, message notifications, room membership, and realtime chatting is made possible through Socket.io!'),
+                                                  'This was primarily a test to create a way to get a JSON web token from a login POST request to use in other requests. But it was also a personal challenge to determine how to extract the keys, and handle this for objects embedded in objects at multiple levels dynaically.'),
                                             ),
                                             ElevatedButton(
                                                 onPressed: () {
                                                   launchUrl(Uri.parse(
-                                                      'https://github.com/Pierre81385/shiny-bassoon-mern'));
+                                                      'https://github.com/Pierre81385/my_clickup'));
                                                 },
                                                 child: const Text('Git Repo'))
                                           ],
@@ -438,6 +447,127 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                                       ),
                                       SvgPicture.asset(
                                         'lib/assets/socketio-original-wordmark.svg',
+                                        semanticsLabel: 'material ui icon',
+                                        height: 50,
+                                        width: 50,
+                                      ),
+                                    ],
+                                  ),
+                          ),
+                          SizedBox(
+                            height: height * .05,
+                            width: double.infinity,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    if (details != 4) {
+                      details = 4;
+                      project1 = false;
+                      project2 = false;
+                      project3 = false;
+                      project4 = false;
+                    } else {
+                      details = 0;
+                      project1 = false;
+                      project2 = false;
+                      project3 = false;
+                      project4 = true;
+                    }
+                  });
+                },
+                hoverColor: Colors.white,
+                onHover: (value) {
+                  setState(() {
+                    project4 = value;
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+                  child: SizedBox(
+                    height: height * .5,
+                    child: Card(
+                      color: Colors.white,
+                      surfaceTintColor: Colors.white,
+                      elevation: project4 ? 15 : 0,
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: const AssetImage(
+                                          "lib/assets/api_response.gif"),
+                                      fit: width < 500
+                                          ? BoxFit.fitHeight
+                                          : BoxFit.fitHeight),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: details == 4
+                                ? SizedBox(
+                                    height: height * .3,
+                                    width: width,
+                                    child: Card(
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            const Padding(
+                                              padding: EdgeInsets.all(8.0),
+                                              child: Text(
+                                                "\"API\": {RESPONSE}",
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsets.all(8.0),
+                                              child: Text(
+                                                  'OK this week I created a mobile app that breaks down and displays the key/value pairs of JSON objects into an easy to read list, and additional pages are generated if the value of a given key is another object.  This example breaks down a login POST request response into something more readable and manageable.  The response breakdown component(s) take a JSON/Map<String, dynamic> object, so just swap out the request form for whatever API request you want 🤷🏻‍♂️and see what you get!  (Thought it looked nice modeled after an old command line interface)  '),
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsets.all(8.0),
+                                              child: Text(
+                                                  'This was primarily a test to create a way to get a JSON web token from a login POST request to use in other requests. But it was also a personal challenge to determine how to extract the keys, and handle this for objects embedded in objects at multiple levels dynaically.'),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: () {
+                                                  launchUrl(Uri.parse(
+                                                      'https://github.com/Pierre81385/my_clickup'));
+                                                },
+                                                child: const Text('Git Repo'))
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(
+                                        'lib/assets/flutter-original.svg',
+                                        semanticsLabel: 'dart icon',
+                                        height: 50,
+                                        width: 50,
+                                      ),
+                                      SvgPicture.asset(
+                                        'lib/assets/dart-original-wordmark.svg',
                                         semanticsLabel: 'material ui icon',
                                         height: 50,
                                         width: 50,
@@ -504,11 +634,13 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                               project1 = true;
                               project2 = false;
                               project3 = false;
+                              project4 = false;
                             } else {
                               details = 0;
                               project1 = false;
                               project2 = false;
                               project3 = false;
+                              project4 = false;
                             }
                           });
                         },
@@ -648,11 +780,13 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                               project1 = false;
                               project2 = true;
                               project3 = false;
+                              project4 = false;
                             } else {
                               details = 0;
                               project1 = false;
                               project2 = false;
                               project3 = false;
+                              project4 = false;
                             }
                           });
                         },
@@ -799,11 +933,13 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                               project1 = false;
                               project2 = false;
                               project3 = true;
+                              project4 = false;
                             } else {
                               details = 0;
                               project1 = false;
                               project2 = false;
                               project3 = false;
+                              project4 = false;
                             }
                           });
                         },
@@ -944,6 +1080,142 @@ class _ProjectsComponentState extends State<ProjectsComponent> {
                         ),
                       ),
                     ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            if (details != 4) {
+                              details = 4;
+                              project1 = false;
+                              project2 = false;
+                              project3 = false;
+                              project4 = false;
+                            } else {
+                              details = 0;
+                              project1 = false;
+                              project2 = false;
+                              project3 = false;
+                              project4 = true;
+                            }
+                          });
+                        },
+                        hoverColor: Colors.white,
+                        onHover: (value) {
+                          setState(() {
+                            project4 = value;
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+                          child: SizedBox(
+                            height: height * .5,
+                            child: Card(
+                              color: Colors.white,
+                              surfaceTintColor: Colors.white,
+                              elevation: project4 ? 15 : 0,
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: const AssetImage(
+                                                  "lib/assets/api_response.gif"),
+                                              fit: width < 500
+                                                  ? BoxFit.fitHeight
+                                                  : BoxFit.fitHeight),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: details == 4
+                                        ? SizedBox(
+                                            height: height * .3,
+                                            width: width,
+                                            child: Card(
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                        "\"API\": {RESPONSE}",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    ),
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                          'OK this week I created a mobile app that breaks down and displays the key/value pairs of JSON objects into an easy to read list, and additional pages are generated if the value of a given key is another object.  This example breaks down a login POST request response into something more readable and manageable.  The response breakdown component(s) take a JSON/Map<String, dynamic> object, so just swap out the request form for whatever API request you want 🤷🏻‍♂️and see what you get!  (Thought it looked nice modeled after an old command line interface)  '),
+                                                    ),
+                                                    const Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child: Text(
+                                                          'This was primarily a test to create a way to get a JSON web token from a login POST request to use in other requests. But it was also a personal challenge to determine how to extract the keys, and handle this for objects embedded in objects at multiple levels dynaically.'),
+                                                    ),
+                                                    ElevatedButton(
+                                                        onPressed: () {
+                                                          launchUrl(Uri.parse(
+                                                              'https://github.com/Pierre81385/my_clickup'));
+                                                        },
+                                                        child: const Text(
+                                                            'Git Repo'))
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        : Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              SvgPicture.asset(
+                                                'lib/assets/flutter-original.svg',
+                                                semanticsLabel: 'dart icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SvgPicture.asset(
+                                                'lib/assets/dart-original-wordmark.svg',
+                                                semanticsLabel:
+                                                    'material ui icon',
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                            ],
+                                          ),
+                                  ),
+                                  SizedBox(
+                                    height: height * .05,
+                                    width: double.infinity,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Flexible(child: SizedBox()),
+                    Flexible(child: SizedBox()),
                   ],
                 ),
                 SizedBox(
